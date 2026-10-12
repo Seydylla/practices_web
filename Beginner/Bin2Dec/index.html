@@ -39,13 +39,34 @@
             border-radius: 1em;
             cursor: pointer;
         }
+
+        #decimalOutput {
+            color: black;
+            background-color: white;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            outline: none;
+            border: none;
+            width: 200px;
+            border-radius: 1em;
+        }
     </style>
 
     <div class="container">
         <h1>Binary to Decimal Converter</h1>
-        <input type="text" placeholder="Enter binary" id="binaryInput">
+        <input type="number" placeholder="Enter binary" id="binaryInput">
         <button id="submit">Submit</button>
+        <div id="decimalOutput">Decimal Result</div>
     </div>
+
+    <script>
+        const submit = document.getElementById('submit')
+        let value
+        submit.addEventListener("click", () => {
+            value = document.getElementById('binaryInput').value
+            console.log(value)
+        })
+    </script>
     
 </body>
 </html>
