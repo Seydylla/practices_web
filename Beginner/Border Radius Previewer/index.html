@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Radius Preview</title>
+
+    <style>
+        body{
+            background-color: black;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 20em);
+            gap: 2em;
+            justify-content: center;
+            align-content: center;
+            height: 100vh;
+            font-weight: bolder;
+        }
+
+        .container div{
+            display: flex;
+            background-color: white;
+            height: 8em;
+            width: 20em;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top-left{
+            border-radius: 4em 0 0 0;
+        }
+
+        .top-right{
+            border-radius: 0 4em 0 0;
+        }
+
+        .bottom-right{
+            border-radius: 0 0 4em 0;
+        }
+
+        .bottom-left{
+            border-radius: 0 0 0 4em;
+        }
+
+        .opposite-corner-1{
+            border-radius: 4em 0;
+        }
+
+        .opposite-corner-2{
+            border-radius: 0 4em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-left">Top-left Corner</div>
+        <div class="top-right">Top-right Corner</div>
+        <div class="bottom-right">Bottom-right Corner</div>
+        <div class="bottom-left">Bottom-left Corner</div>
+        <div class="opposite-corner-1">Opposite Corner</div>
+        <div class="opposite-corner-2">Opposite Corner</div>
+    </div>
+</body>
+</html>
