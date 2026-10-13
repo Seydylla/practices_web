@@ -1,0 +1,41 @@
+body{
+    background-color: black;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 4em);
+    gap: 0.8em;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    font-weight: bolder;
+}
+
+.container #output {
+    grid-column: span 4;
+    background-color: white;
+    color: black;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px;
+    font-size: 1.2em;
+    border-radius: 4px;
+}
+
+.container div{
+    display: flex;
+    background-color: white;
+    height: 2.5em;
+    font-size: 1.2em;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.number-btn, .operator, #clear, #enter{
+    cursor: pointer;
+}

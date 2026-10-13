@@ -3,48 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <style>
-        body{
-            background-color: black;
-            text-align: center;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(4, 4em);
-            gap: 0.8em;
-            justify-content: center;
-            align-content: center;
-            height: 100vh;
-            font-weight: bolder;
-        }
-        .container #output {
-            grid-column: span 4;
-            background-color: white;
-            color: black;
-            height: 3em;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding: 0 15px;
-            font-size: 1.2em;
-            border-radius: 4px;
-        }
-
-        .container div{
-            display: flex;
-            background-color: white;
-            height: 2.5em;
-            font-size: 1.2em;
-            justify-content: center;
-            align-items: center;
-            border-radius: 4px;
-        }
-
-        .number-btn, .operator, #clear, #enter{
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -67,48 +26,6 @@
         <div class="number-btn">00</div>
     </div>
 
-    <script>
-        const output = document.getElementById('output')
-        const number = document.querySelectorAll('.number-btn')
-        const operator = document.querySelectorAll('.operator')
-        const enter = document.getElementById('enter')
-        const clear = document.getElementById('clear')
-
-        number.forEach(button => {
-            button.addEventListener("click", () => {
-                output.innerText += button.innerText
-            })
-        })
-
-        let operation = ''
-        let previous = ''
-
-        operator.forEach(operator => {
-            operator.addEventListener("click", () => {
-                previous = output.innerText
-                operation = operator.innerText
-                output.innerText = ''
-            })
-        })
-
-        enter.addEventListener("click", () => {
-
-            let current = output.innerText;
-            let result = 0;
-
-            if (operation === "+") result = Number(previous) + Number(current);
-            if (operation === "-") result = Number(previous) - Number(current);
-            if (operation === "*") result = Number(previous) * Number(current);
-            if (operation === "/") result = Number(previous) / Number(current);
-
-            output.innerText = result;
-        })
-
-        clear.addEventListener("click", () => {
-            output.innerText = ""
-            previous = ""
-            operation = ""
-        })
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
