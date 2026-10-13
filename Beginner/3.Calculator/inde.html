@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: black;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 4em);
+            gap: 0.5em;
+            justify-content: center;
+            align-content: center;
+            height: 100vh;
+            font-weight: bolder;
+        }
+        .container .output {
+            grid-column: span 4;
+            background-color: white;
+            color: black;
+            height: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 15px;
+            font-size: 1.2em;
+            border-radius: 4px;
+        }
+
+        .container div{
+            display: flex;
+            background-color: white;
+            height: 2.5em;
+            font-size: 1.2em;
+            justify-content: center;
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        #enter{
+            font-weight: light !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="output">0</div>
+        <div>+</div>
+        <div>-</div>
+        <div>*</div>
+        <div>/</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>C</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div id="enter">Enter</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>00</div>
+    </div>
+</body>
+</html>
