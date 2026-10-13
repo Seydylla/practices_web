@@ -12,13 +12,13 @@
         .container {
             display: grid;
             grid-template-columns: repeat(4, 4em);
-            gap: 0.5em;
+            gap: 0.8em;
             justify-content: center;
             align-content: center;
             height: 100vh;
             font-weight: bolder;
         }
-        .container .output {
+        .container #output {
             grid-column: span 4;
             background-color: white;
             color: black;
@@ -41,30 +41,74 @@
             border-radius: 4px;
         }
 
-        #enter{
-            font-weight: light !important;
+        .number-btn, .operator, #clear, #enter{
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="output">0</div>
-        <div>+</div>
-        <div>-</div>
-        <div>*</div>
-        <div>/</div>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>C</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div id="enter">Enter</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>00</div>
+        <div id="output"></div>
+        <div class="operator">+</div>
+        <div class="operator">-</div>
+        <div class="operator">*</div>
+        <div class="operator">/</div>
+        <div class="number-btn">1</div>
+        <div class="number-btn">2</div>
+        <div class="number-btn">3</div>
+        <div id="clear">C</div>
+        <div class="number-btn">4</div>
+        <div class="number-btn">5</div>
+        <div class="number-btn">6</div>
+        <div id="enter">=</div>
+        <div class="number-btn">7</div>
+        <div class="number-btn">8</div>
+        <div class="number-btn">9</div>
+        <div class="number-btn">00</div>
     </div>
+
+    <script>
+        const output = document.getElementById('output')
+        const number = document.querySelectorAll('.number-btn')
+        const operator = document.querySelectorAll('.operator')
+        const enter = document.getElementById('enter')
+        const clear = document.getElementById('clear')
+
+        number.forEach(button => {
+            button.addEventListener("click", () => {
+                output.innerText += button.innerText
+            })
+        })
+
+        let operation = ''
+        let previous = ''
+
+        operator.forEach(operator => {
+            operator.addEventListener("click", () => {
+                previous = output.innerText
+                operation = operator.innerText
+                output.innerText = ''
+            })
+        })
+
+        enter.addEventListener("click", () => {
+
+            let current = output.innerText;
+            let result = 0;
+
+            if (operation === "+") result = Number(previous) + Number(current);
+            if (operation === "-") result = Number(previous) - Number(current);
+            if (operation === "*") result = Number(previous) * Number(current);
+            if (operation === "/") result = Number(previous) / Number(current);
+
+            output.innerText = result;
+        })
+
+        clear.addEventListener("click", () => {
+            output.innerText = ""
+            previous = ""
+            operation = ""
+        })
+    </script>
 </body>
 </html>
